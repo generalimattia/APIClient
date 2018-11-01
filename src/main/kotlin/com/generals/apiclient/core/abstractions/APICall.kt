@@ -4,8 +4,8 @@ import arrow.core.Either
 
 interface APICall<T> {
 
-    fun execute(): Either<APIError, APIResponse<T>>
+    fun executeSync(): Either<APIError, APIResponse<T>>
 
-    fun enqueue(callback: (Either<APIError, APIResponse<T>>) -> Unit)
+    fun executeAsync(callback: (Either<APIError, APIResponse<T>>) -> Unit)
 
 }
